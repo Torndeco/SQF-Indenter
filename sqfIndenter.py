@@ -102,10 +102,12 @@ for filename in files:
 		f = open(filename + "-new", "w")
 		output_lines = trimLines(input_lines);
 		output_lines = splitLines(output_lines);
-		output_lines = customParser(output_lines, "{", "\n{\n", ["{}", "{true}"]);	
+#									#output_lines	 #String to Find,  #Replacement String,  #List of Strings to Ignore);
+#		output_lines = customParser(output_lines,    "{",              "\n{\n",              ["{}", "{true}", "{false}"]);	
+		output_lines = customParser(output_lines, "{", "\n{\n", ["{}", "{true}", "{false}"]);	
 		output_lines = customParser(output_lines, ":{", ":\n{\n", []);
-		output_lines = customParser(output_lines, "}", "\n}", [";};", "{}", "}foreach", "{true}"]);
-		output_lines = customParser(output_lines, "}", "\n}\n", [";};", "};", "{}", "}foreach", "{true}"]);
+		output_lines = customParser(output_lines, "}", "\n}", [";};", "{}", "}count", "}foreach", "{true}", "{false}"]);
+		output_lines = customParser(output_lines, "}", "\n}\n", [";};", "};", "{}", "}count", "}foreach", "{true}", "{false}"]);
 		output_lines = customParser(output_lines, "};", "};\n", ["};\n"]);
 		output_lines = customParser(output_lines, "else", "\nelse\n", []);
 		output_lines = customParser(output_lines, ";", ";\n", ["};"]);
