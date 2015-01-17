@@ -102,9 +102,11 @@ def customIndent(filename, input_lines ):
 			for x in ["}\s*forEach*", "}\s*count*"]:
 				if re.search(x, line.strip(), re.IGNORECASE) != None:
 					indent_counter = indent_counter - 1
-
+					break
+		
 		for x in range(0, indent_counter):
 			line = "\t" + line
+		
 		output_lines.append(line)
 		if line.strip() == "{":
 			indent_counter = indent_counter + 1
@@ -137,7 +139,6 @@ for filename in files:
 		for rule in rules:
 			print("WORKING.... Rule...." + str(rule))
 			output_lines = customParser(output_lines, rule[0], rule[1], rule[2])
-		output_lines = customIndent(filename, output_lines)
 		output_lines = customIndent(filename, output_lines)
 		
 		for line in output_lines:
