@@ -4,13 +4,13 @@
 rules = [		
 #FIND STRING    #REPLACE STRING        #LIST OF STRINGS TO IGNORE
 ["{",           "\n{\n",               ["{\s*}", "{\s*True\s*}", "{\s*False\s*}"]],
-[":\s*{",          ":\n{\n",              []],
+[":\s*{",       ":\n{\n",              []],
 ["}",           "\n}",                 [";\s*}\s*;", "{\s*}", "}\s*Count", "}\s*Foreach", "{\s*True\s*}", "{\s*False\s*}"]],
 ["}",           "}\n",                 [";\s*}\s*;", "}\s*;", "{\s*}", "}\s*Count", "}\s*Foreach", "{\s*True\s*}", "{\s*False\s*}"]],
-["}\s*;",          "};\n",                ["}\s*;\n"]],
+["}\s*;",       "};\n",                ["}\s*;\n"]],
 ["else",        "\nelse\n",            []],
 [";",           ";\n",                 ["}\s*;"]],
-["then\s*{",       "then\n{",             []]]
+["then\s*{",    "then\n{",             []]]
 
 
 ## Coming Soon ability to define Rules for Indentation.........
@@ -82,7 +82,7 @@ def customParser(input_strings, find_string, new_string, ignore_strings):
 		input_strings = list(output_lines);
 		first_run = False;
 		for index in range(len(output_lines)):
-			output_lines[index] = findString(output_lines[index].strip(), find_string.lower(), new_string, ignore_strings)			
+			output_lines[index] = findString(output_lines[index].strip(), find_string, new_string, ignore_strings)			
 		input_strings = splitLines(input_strings);
 		output_lines = splitLines(output_lines);
 	return output_lines;
@@ -130,7 +130,6 @@ for filename in files:
 		print("File: " + filename)	
 		with open(filename) as f:
 			input_lines = f.readlines()
-		indent = 0
 		output_lines = [];
 		f = open(filename + "-new", "w")
 		output_lines = prepareLines(input_lines);
