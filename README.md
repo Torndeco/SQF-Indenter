@@ -2,8 +2,8 @@ Requirements Python 3.4
 
 Its just a simple script that indents SQF Code..
 
-cd <path to sqf files>/
-C:\Python34\Python.exe  <path to sqf-indenter>/sqfIndentor.py
+cd \<path to sqf files\>  
+C:\Python34\Python.exe  \<path to sqf-indenter\>/sqfIndentor.py
 
 The script will parse all *.sqf in current directory + create new files with -new added to the filename.
 
