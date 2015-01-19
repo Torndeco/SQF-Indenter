@@ -3,7 +3,7 @@
 
 rules = [		
 #FIND STRING    #REPLACE STRING        #LIST OF STRINGS TO IGNORE
-["{",           "\n{\n",               ["{\s*}", "{\s*True\s*}", "{\s*False\s*}"]],
+["{",           "\n{\n",               ["{\s*}", "{\s*True\s*}", "{\s*False\s*}", "{\s*1==1\s*}"]],
 [":\s*{",       ":\n{\n",              []],
 ["}",           "\n}",                 [";\s*}\s*;", "{\s*}", "}\s*Count", "}\s*Foreach", "{\s*True\s*}", "{\s*False\s*}"]],
 ["}",           "}\n",                 [";\s*}\s*;", "}\s*;", "{\s*}", "}\s*Count", "}\s*Foreach", "{\s*True\s*}", "{\s*False\s*}"]],
