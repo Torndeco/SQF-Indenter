@@ -20,6 +20,8 @@ rules = [
 
 
 import os
+from glob import glob
+
 import re
 
 def prepareLines( input_lines ):
@@ -124,7 +126,7 @@ def customIndent(filename, input_lines ):
 		
 		
 		
-files = os.listdir()	
+files = [y for x in os.walk("./") for y in glob(os.path.join(x[0], '*.sqf'))]
 for filename in files:
 	if (filename.title().lower().endswith('-new')) is False:
 		print("File: " + filename)	
